@@ -162,7 +162,7 @@ def getNodes():
         }
 
 
-@server.route('/registrationRequest', methods=['POST'])
+@server.route('/registration', methods=['POST'])
 def register():
     # response, assignmentArr = db.register_nodes(1, request.get_json())
 
@@ -183,7 +183,7 @@ def register():
         }
 
 
-@server.route('/deregistrationRequest', methods=['POST'])
+@server.route('/deregistration', methods=['POST'])
 def deregister():
     response = db.deregister_nodes(request.get_json())
     return response
@@ -202,7 +202,7 @@ def updateNode():
 # In[ --- Grant Management --- ]
 
 
-@server.route('/spectrumInquiryRequest', methods=['POST'])
+@server.route('/spectrumInquiry', methods=['POST'])
 def spectrumInquiryRequest():
     try:
         response, radiosToCommunicate = db.spectrum_inquiry(request.get_json())
@@ -255,7 +255,7 @@ def getInquiryRequests():
         }
 
 
-@server.route('/grantRequest', methods=['POST'])
+@server.route('/grant', methods=['POST'])
 def grantRequest():
     try:
         response = db.create_grant_request(request.get_json())
@@ -278,7 +278,7 @@ def heartbeat():
     return response
 
 
-@server.route('/relinquishmentRequest', methods=['POST'])
+@server.route('/relinquishment', methods=['POST'])
 def relinquishment():
     try:
         response = db.relinquishment_request(request.get_json())
@@ -350,5 +350,5 @@ if __name__ == "__main__":
         port=8000,
         debug=True,
         use_reloader=False,
-        ssl_context=('certs/server.crt', 'certs/server.key')
+        ssl_context=('certs/server_10.147.20.75.crt', 'certs/server_10.147.20.75.key')
     )
