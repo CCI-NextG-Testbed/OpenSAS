@@ -17,12 +17,12 @@ Next, create the CA and server/client certificates using the create_ssl_certs.sh
 cd OpenSAS/Core/Certs
 sudo chmod +x create_ssl_certs.sh
 ```
-Before running the script, make sure to delete the existing ca.cert and all other .key,.crt and .csr files. The only to files remaining should be create_ssl_certs.sh and create_client_certs.sh. The create_client_certs.sh can be used to create client certs for each new client. Once existing certs are deleted, run the script.
+Before running the script, make sure to delete the existing ca.cert and all other .key,.crt and .csr files. The only to files remaining should be create_ssl_certs.sh and create_client_certs.sh. The create_client_certs.sh can be used to create client certs for each new client. Once existing certs are deleted, run the script. for server hostname- give the ip of machine running the server
 ```
 ./create_ssl_certs.sh
 ```
 This will create the CA, server and client certificates in the Certs folder. The ca.cert, client-<IP/hostname>-0.cert and client-<IP/hostname>-0.key need to be copied to the client machine to make HTTPS requests.
-Next, the path to the server cert and key is updated in the Core/server.py. The following code snipped show which paths to update.
+Next, the path to the server cert and key is updated in the Core/server.py. The following code snipped show which paths to update. 
 ```
    httpd = HTTPServer(('0.0.0.0', 1443), SimpleHTTPRequestHandler)
     httpd.socket = ssl.wrap_socket (httpd.socket, 
