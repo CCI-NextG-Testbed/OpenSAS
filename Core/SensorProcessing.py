@@ -46,7 +46,7 @@ class SensorProcessor(Thread):
         self.iq_data = np.empty([self.max_size, 102400], dtype=np.float64)
         self.create_dataset = False
         self.num_samples = 0
-        self.model = tf.keras.models.load_model('../../demo_v3.h5')
+        #self.model = tf.keras.models.load_model('../../demo_v3.h5')
         self.incumbent_count = 0
         self.unknown_count = 0
         self.prediction_avg = 0.50
